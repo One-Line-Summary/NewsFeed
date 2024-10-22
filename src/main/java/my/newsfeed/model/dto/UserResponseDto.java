@@ -1,8 +1,12 @@
 package my.newsfeed.model.dto;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
+@Setter
+@NoArgsConstructor
 public class UserResponseDto {
     private String username; //유저 이름
     private String userPassword; //유저 비밀번호
