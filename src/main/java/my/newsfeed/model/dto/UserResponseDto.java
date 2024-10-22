@@ -1,17 +1,9 @@
-package my.newsfeed.model.entity;
+package my.newsfeed.model.dto;
 
-import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
-@Entity
 @Getter
-@NoArgsConstructor
-
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long userid;
+public class UserResponseDto {
     private String username; //유저 이름
     private String userPassword; //유저 비밀번호
     private String userEmail; // 유저 이메일
