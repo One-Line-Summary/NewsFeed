@@ -1,5 +1,6 @@
 package my.newsfeed.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import my.newsfeed.model.dto.UserRequestDto;
 import my.newsfeed.model.dto.UserResponseDto;
@@ -73,5 +74,10 @@ public class UserProfileController {
         } else {
             return "공개 프로필입니다.";
         }
+    }
+
+    @PutMapping("/{userid}")
+    public UserRequestDto updateUser(@PathVariable Long userid, @Valid @RequestBody UserRequestDto userRequestDto) {
+        return userService.updateUser(userid, userRequestDto);
     }
 }

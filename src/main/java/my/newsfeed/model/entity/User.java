@@ -22,4 +22,19 @@ public class User {
     private String introduce; // 자기소개
     private boolean isPrivate; //프로필 공개여부(true = 비공개)
 
+    public void updateUsername(String username) {
+        this.username = username;
+    }
+
+    public void updateUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
+    public void updateIntroduce(String introduce) {
+        this.introduce = introduce;
+    }
+
+    public void updateIsPrivate(boolean isPrivate) {
+        this.isPrivate = isPrivate;
+    }
 }
