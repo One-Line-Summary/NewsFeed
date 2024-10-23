@@ -1,11 +1,13 @@
 package my.newsfeed.service;
 
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import my.newsfeed.jwt.JwtUtil;
 import my.newsfeed.model.dto.LoginRequestDto;
 import my.newsfeed.model.dto.SignupRequestDto;
 import my.newsfeed.model.dto.UserRequestDto;
+import my.newsfeed.model.dto.UserResponseDto;
 import my.newsfeed.model.entity.User;
 import my.newsfeed.model.entity.UserRoleEnum;
 import my.newsfeed.repository.UserRepository;
@@ -13,6 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
@@ -78,11 +81,57 @@ public class UserService {
     }
 
     // 배경 이미지 업데이트
-    public void updateBackgroundImage(Long id, String requestDto) {
-
+    public void updateBackgroundImage(Long id, String backgroundImageUrl) {
+        User user = userRepository.findById(id)
+                .orElseThrow(()-> new IllegalArgumentException("유저를 찾을 수 없습니다."));
+        user.setBackgroundImageUrl(backgroundImageUrl);
+        userRepository.save(user);
     }
 
     public void updateProfileVisibility(Long id, UserRequestDto requestDto) {
+        User user = userRepository.findById(id)
+                .orElseThrow(()-> new IllegalArgumentException("유저를 찾을 수 없습니다."));
+        user.setPrivate(requestDto.isPrivate());
+        userRepository.save(user);
+
+    }
+
+    public void updateProfileImage(Long id, String filePath) {
+        User user = userRepository.findById(id)
+                .orElseThrow(()-> new IllegalArgumentException("유저를 찾을 수 없습니다."));
+        user.setUserImageUrl(filePath);
+        userRepository.save(user);
+    }
+
+    public UserResponseDto getUserProfile(Long id) {
+        return null;
+    }
+
+    public UserRequestDto updateUser(Long userid, @Valid UserRequestDto userRequestDto) {
+        return null;
+    }
+
+    public void deleteUser(String username, String password) {
+    }
+
+    // 친구 추가 메서드
+    public User addFriend(Long userId, Long friendId) {
+        User user = userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("유저를 찾지 못했습니다."));
+        User friend = userRepository.findById(friendId).orElseThrow(() -> new IllegalArgumentException("친구를 찾지 못했습니다."));
+        user.addFriend(friend); // 친구 추가
+        return userRepository.save(user); // 친구 추가 후 저장
+    }
+    // 친구 삭제 메서드
+    public User removeFriend(Long userId, Long friendId) {
+        User user = userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("유저를 찾지 못했습니다."));
+        User friend = userRepository.findById(friendId).orElseThrow(() -> new IllegalArgumentException("친구를 찾지 못했습니다."));
+        user.removeFriend(friend); // 친구 삭제
+        return userRepository.save(user); // 친구 삭제 후 저장
+    }
+    // 친구 목록 조회 메서드
+    public Set<User> getFriends(Long userId) {
+        User user = userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("유저를 찾지 못했습니다."));
+        return user.getFriends(); // 친구 목록 반환
     }
 
 }

@@ -2,15 +2,19 @@ package my.newsfeed.controller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import my.newsfeed.model.dto.FriendRequestDto;
 import my.newsfeed.model.dto.UserRequestDto;
 import my.newsfeed.model.dto.UserResponseDto;
+import my.newsfeed.model.entity.User;
 import my.newsfeed.repository.UserRepository;
 import my.newsfeed.service.UserService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/users")
@@ -76,8 +80,27 @@ public class UserProfileController {
         }
     }
 
-    @PutMapping("/{userid}")
+    @PutMapping("/{id}")
     public UserRequestDto updateUser(@PathVariable Long userid, @Valid @RequestBody UserRequestDto userRequestDto) {
         return userService.updateUser(userid, userRequestDto);
+    }
+
+    // 6. 친구 추가 API
+    @PostMapping("/{id}/friends")
+    public ResponseEntity<String> addFriend(@PathVariable Long userId, @RequestBody FriendRequestDto friendRequest) {
+        userService.addFriend(userId, friendRequest.getFriendId());
+        return ResponseEntity.ok("친구 추가 성공");
+    }
+    // 7. 친구 삭제 API
+    @DeleteMapping("/{id}/friends/{friendId}")
+    public ResponseEntity<String> removeFriend(@PathVariable Long userId, @PathVariable Long friendId) {
+        userService.removeFriend(userId, friendId);
+        return ResponseEntity.ok("친구 삭제 성공");
+    }
+    // 8. 친구 목록 조회 API
+    @GetMapping("/{id}/friends")
+    public ResponseEntity<List<User>> getFriends(@PathVariable Long userId) {
+        List<User> friends = (List<User>) userService.getFriends(userId);
+        return ResponseEntity.ok(friends);
     }
 }

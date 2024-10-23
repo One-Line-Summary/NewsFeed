@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -41,4 +44,22 @@ public class User {
         this.userEmail = email;
         this.role = role;
     }
+
+    // 친구 관계를 관리하기 위한 필드 추가
+    @ManyToMany
+    @JoinTable(
+            name = "friendship",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "friend_id")
+    )
+    private Set<User> friends = new HashSet<>(); // 친구 목록
+    public void addFriend(User friend) {
+        this.friends.add(friend);
+        friend.getFriends().add(this); // 양방향 관계 설정
+    }
+    public void removeFriend(User friend) {
+        this.friends.remove(friend);
+        friend.getFriends().remove(this); // 양방향 관계 설정
+    }
+
 }

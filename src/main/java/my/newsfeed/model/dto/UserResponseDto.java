@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -15,5 +17,6 @@ public class UserResponseDto {
     private String backgroundImageUrl; // 배경 이미지 URL
     private String introduce; // 자기소개
     private boolean isPrivate; //프로필 공개여부(true = 비공개)
+    private List<Long> friendIds;
 
 }
