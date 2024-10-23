@@ -59,27 +59,4 @@ public class UserService {
     public void updateProfileVisibility(Long id, UserRequestDto requestDto) {
     }
 
-    //유저 정보 업데이트
-    @Transactional
-    public UserRequestDto updateUser(Long userid, UserRequestDto userRequestDto) {
-        // Find user by id
-        Optional<User> optionalUser = userRepository.findById(userid);
-
-        if (optionalUser.isPresent()) {
-            User user = optionalUser.get();
-
-            // Update fields
-            user.updateUsername(userRequestDto.getUsername());
-            user.updateUserEmail(userRequestDto.getUserEmail());
-            user.updateIntroduce(userRequestDto.getIntroduce());
-            user.updateIsPrivate(userRequestDto.isPrivate());
-
-            // Save updated user
-            userRepository.save(user);
-
-            return userRequestDto;
-        } else {
-            throw new UserNotFoundException("User not found");
-        }
-    }
 }
