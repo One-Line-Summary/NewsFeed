@@ -93,12 +93,6 @@ public class UserService {
         if (optionalUser.isPresent()) {
             User user = optionalUser.get();
 
-            // 유저 정보 업데이트
-            user.updateUsername(userRequestDto.getUsername());
-            user.updateUserEmail(userRequestDto.getUserEmail());
-            user.updateIntroduce(userRequestDto.getIntroduce());
-            user.updateIsPrivate(userRequestDto.isPrivate());
-
             // 변경된 정보 저장
             userRepository.save(user);
 
