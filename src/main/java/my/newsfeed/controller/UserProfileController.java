@@ -76,4 +76,8 @@ public class UserProfileController {
         }
     }
 
+    @PutMapping("/{userid}")
+    public UserRequestDto updateUser(@PathVariable Long userid, @Valid @RequestBody UserRequestDto userRequestDto) {
+        return userService.updateUser(userid, userRequestDto);
+    }
 }

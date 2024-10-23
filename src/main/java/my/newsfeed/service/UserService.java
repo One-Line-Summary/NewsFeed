@@ -75,4 +75,13 @@ public class UserService {
         user.setDeleted(true);
         userRepository.save(user);
     }
+
+    // 배경 이미지 업데이트
+    public void updateBackgroundImage(Long id, String requestDto) {
+
+    }
+
+    public void updateProfileVisibility(Long id, UserRequestDto requestDto) {
+    }
+
 }

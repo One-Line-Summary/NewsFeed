@@ -2,6 +2,7 @@ package my.newsfeed.security;
 
 import my.newsfeed.model.entity.User;
 import my.newsfeed.repository.UserRepository;
+import my.newsfeed.security.UserDetailsImpl;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
