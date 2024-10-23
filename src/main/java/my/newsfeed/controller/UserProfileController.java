@@ -81,8 +81,8 @@ public class UserProfileController {
     }
 
     @PutMapping("/{id}")
-    public UserRequestDto updateUser(@PathVariable Long userid, @Valid @RequestBody UserRequestDto userRequestDto) {
-        return userService.updateUser(userid, userRequestDto);
+    public UserRequestDto updateUser(@PathVariable Long userId, @Valid @RequestBody UserRequestDto userRequestDto) {
+        return userService.updateUser(userId, userRequestDto);
     }
 
     // 6. 친구 추가 API
