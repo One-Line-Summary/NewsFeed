@@ -1,4 +1,4 @@
-# User 테이블
+/*# User 테이블
 CREATE TABLE User (
                       user_id BIGINT AUTO_INCREMENT PRIMARY KEY,
                       user_name VARCHAR(255) NOT NULL,
@@ -56,4 +56,4 @@ CREATE TABLE User_Comment_Like (
                                    comment_id BIGINT,
                                    FOREIGN KEY (user_id) REFERENCES User(user_id),
                                    FOREIGN KEY (comment_id) REFERENCES Comment(comment_id)
-);
+);*/
