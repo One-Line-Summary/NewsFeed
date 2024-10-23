@@ -1,7 +1,7 @@
 # NewsFeed
 ### 팀노션
 ---
-[팀노션](https://www.notion.so/teamsparta/1232dc3ef51481808460cf50e30e40d9)
+[한 줄 정리 해주시조](https://www.notion.so/teamsparta/1232dc3ef51481808460cf50e30e40d9)
 ---
 ## 팀원 파트
 ---
