@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import my.newsfeed.jwt.JwtUtil;
 import my.newsfeed.model.dto.LoginRequestDto;
 import my.newsfeed.model.dto.SignupRequestDto;
+import my.newsfeed.model.dto.UserRequestDto;
 import my.newsfeed.model.entity.User;
 import my.newsfeed.model.entity.UserRoleEnum;
 import my.newsfeed.repository.UserRepository;
