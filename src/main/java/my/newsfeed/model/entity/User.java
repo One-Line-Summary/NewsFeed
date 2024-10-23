@@ -29,6 +29,8 @@ public class User {
     private String introduce; // 자기소개
     @Column(nullable = true)
     private boolean isPrivate; //프로필 공개여부(true = 비공개)
+    @Column(nullable = true)
+    private boolean isDeleted = false;
     @Column(nullable = false)
     @Enumerated(value = EnumType.STRING) //enum타입
     private UserRoleEnum role;
