@@ -3,6 +3,8 @@ package my.newsfeed.board.dto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.time.LocalDateTime;
+
 @Getter
 @AllArgsConstructor
 public class BoardResponseDto {
@@ -12,4 +14,7 @@ public class BoardResponseDto {
     private String boardContent;
     private String createdDate;
     private String modifiedDate;
+
+    public BoardResponseDto(Long id, String boardTitle, String userName, String boardContent, LocalDateTime createdDate, LocalDateTime modifiedDate) {
+    }
 }

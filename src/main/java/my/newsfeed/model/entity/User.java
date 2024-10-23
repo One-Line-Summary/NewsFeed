@@ -1,10 +1,7 @@
 package my.newsfeed.model.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Getter
@@ -41,4 +38,5 @@ public class User {
         this.userEmail = email;
         this.role = role;
     }
+
 }

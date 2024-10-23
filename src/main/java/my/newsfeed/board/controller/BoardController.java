@@ -21,7 +21,7 @@ public class BoardController {
     public ResponseEntity<BoardResponseDto> createBoard(@RequestBody BoardRequestDto requestDto){
         return ResponseEntity
                 .status(HttpStatus.CREATED)
-                .body(BoardService.createBoard(requestDto));
+                .body(boardService.createBoard(requestDto));
     }
 
     // 전체 게시물 조회
