@@ -1,14 +1,18 @@
 package my.newsfeed.service;
 
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import my.newsfeed.model.dto.LoginRequestDto;
 import my.newsfeed.model.dto.SignupRequestDto;
+import my.newsfeed.exception.UserNotFoundException;
 import my.newsfeed.model.dto.UserRequestDto;
 import my.newsfeed.model.dto.UserResponseDto;
 import my.newsfeed.model.entity.User;
 import my.newsfeed.repository.UserRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -64,6 +68,30 @@ public class UserService {
 
     public void login(LoginRequestDto requestDto, HttpServletResponse res) {
     }
+
+    @Transactional
+    public UserRequestDto updateUser(Long userid, UserRequestDto userRequestDto) {
+        // Find user by id
+        Optional<User> optionalUser = userRepository.findById(userid);
+
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
+
+            // Update fields
+            user.updateUsername(userRequestDto.getUsername());
+            user.updateUserEmail(userRequestDto.getUserEmail());
+            user.updateIntroduce(userRequestDto.getIntroduce());
+            user.updateIsPrivate(userRequestDto.isPrivate());
+
+            // Save updated user
+            userRepository.save(user);
+
+            return userRequestDto;
+        } else {
+            throw new UserNotFoundException("User not found");
+        }
+    }
+}
 
     public void deleteUser(String username, String password) {
     }

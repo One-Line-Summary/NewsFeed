@@ -39,4 +39,19 @@ public class User {
         this.role = role;
     }
 
+    public void updateUsername(String username) {
+        this.username = username;
+    }
+
+    public void updateUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
+    public void updateIntroduce(String introduce) {
+        this.introduce = introduce;
+    }
+
+    public void updateIsPrivate(boolean isPrivate) {
+        this.isPrivate = isPrivate;
+    }
 }

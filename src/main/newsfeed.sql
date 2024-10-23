@@ -45,21 +45,19 @@ CREATE TABLE Comment
 );
 
 # User_Board_Like 테이블
-CREATE TABLE User_Board_Like
-(
-    user_board_like_id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    user_id            BIGINT,
-    board_id           BIGINT,
-    FOREIGN KEY (user_id) REFERENCES User (user_id),
-    FOREIGN KEY (board_id) REFERENCES Board (board_id)
+CREATE TABLE User_Board_Like (
+                                 user_board_like_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+                                 user_id BIGINT,
+                                 board_id BIGINT,
+                                 FOREIGN KEY (user_id) REFERENCES User(user_id),
+                                 FOREIGN KEY (board_id) REFERENCES Board(board_id)
 );
 
 # User_Comment_Like 테이블
-CREATE TABLE User_Comment_Like
-(
-    user_comment_like_id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    user_id              BIGINT,
-    comment_id           BIGINT,
-    FOREIGN KEY (user_id) REFERENCES User (user_id),
-    FOREIGN KEY (comment_id) REFERENCES Comment (comment_id)
-);*/
+CREATE TABLE User_Comment_Like (
+                                   user_comment_like_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+                                   user_id BIGINT,
+                                   comment_id BIGINT,
+                                   FOREIGN KEY (user_id) REFERENCES User(user_id),
+                                   FOREIGN KEY (comment_id) REFERENCES Comment(comment_id)
+);
