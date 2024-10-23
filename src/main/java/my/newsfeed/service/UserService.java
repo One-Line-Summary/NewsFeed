@@ -5,7 +5,6 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import my.newsfeed.model.dto.LoginRequestDto;
 import my.newsfeed.model.dto.SignupRequestDto;
-import my.newsfeed.exception.UserNotFoundException;
 import my.newsfeed.model.dto.UserRequestDto;
 import my.newsfeed.model.dto.UserResponseDto;
 import my.newsfeed.model.entity.User;
@@ -17,11 +16,13 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class UserService {
+
     private final UserRepository userRepository;
 
     // 프로필 조회
     public UserResponseDto getUserProfile(Long id) {
-        User user = userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("유저를 찾지 못했습니다."));
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("유저를 찾지 못했습니다."));
 
         // User 엔티티를 UserResponseDto로 변환
         UserResponseDto responseDto = new UserResponseDto();
@@ -37,7 +38,8 @@ public class UserService {
 
     // 프로필 공개/ 비공개 설정
     public void updateProfile(Long id, UserRequestDto requestDto) {
-        User user = userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("유저를 찾지 못했습니다."));
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("유저를 찾지 못했습니다."));
 
         // 프로필 공개 여부 설정
         user.setPrivate(requestDto.isPrivate());
@@ -46,53 +48,63 @@ public class UserService {
 
     // 프로필 이미지 업데이트
     public void updateProfileImage(Long id, String imageUrl) {
-        User user = userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("유저를 찾지 못했습니다."));
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("유저를 찾지 못했습니다."));
 
-
-        // requestDto에서 이미지 URL 가져오기
+        // 프로필 이미지 URL 업데이트
         user.setUserImageUrl(imageUrl);
         userRepository.save(user);
     }
 
     // 배경 이미지 업데이트
-    public void updateBackgroundImage(Long id, String requestDto) {
+    public void updateBackgroundImage(Long id, String imageUrl) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("유저를 찾지 못했습니다."));
 
+        // 배경 이미지 업데이트 로직 추가
+        user.setBackgroundImageUrl(imageUrl);
+        userRepository.save(user);
+    }
+
+    // 회원가입
+    public void signup(SignupRequestDto signupRequestDto) {
+        // 회원가입 로직 추가 필요
+    }
+
+    // 로그인
+    public void login(LoginRequestDto requestDto, HttpServletResponse res) {
+        // 로그인 로직 추가 필요
+    }
+
+    // 유저 삭제
+    public void deleteUser(String username, String password) {
+        // 유저 삭제 로직 추가 필요
     }
 
     public void updateProfileVisibility(Long id, UserRequestDto requestDto) {
     }
 
-    public void signup(SignupRequestDto signupRequestDto) {
-
-    }
-
-    public void login(LoginRequestDto requestDto, HttpServletResponse res) {
-    }
-
+    // **User 정보 업데이트 기능 추가**
     @Transactional
     public UserRequestDto updateUser(Long userid, UserRequestDto userRequestDto) {
-        // Find user by id
+        // 유저 ID로 조회
         Optional<User> optionalUser = userRepository.findById(userid);
 
         if (optionalUser.isPresent()) {
             User user = optionalUser.get();
 
-            // Update fields
+            // 유저 정보 업데이트
             user.updateUsername(userRequestDto.getUsername());
             user.updateUserEmail(userRequestDto.getUserEmail());
             user.updateIntroduce(userRequestDto.getIntroduce());
             user.updateIsPrivate(userRequestDto.isPrivate());
 
-            // Save updated user
+            // 변경된 정보 저장
             userRepository.save(user);
 
             return userRequestDto;
         } else {
-            throw new UserNotFoundException("User not found");
+            throw new IllegalArgumentException("User not found");
         }
-    }
-}
-
-    public void deleteUser(String username, String password) {
     }
 }

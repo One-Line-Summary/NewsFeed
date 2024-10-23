@@ -40,7 +40,7 @@ public class User {
     }
 
     public void updateUsername(String username) {
-        this.username = username;
+        this.userName = username;
     }
 
     public void updateUserEmail(String userEmail) {
