@@ -23,7 +23,7 @@ public class BoardService {
     private final BoardRepository boardRepository;
 
     @Transactional
-    public  BoardResponseDto createBoard(BoardRequestDto requestDto) {
+    public BoardResponseDto createBoard(BoardRequestDto requestDto) {
         // 일정 생성
         // DTO -> ENTITY
         Board board = Board.from(requestDto);
