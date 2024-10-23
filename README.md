@@ -16,4 +16,4 @@
 ---
 ## ERD
 ---
-![image](https://github.com/user-attachments/assets/168119ac-6671-4b2e-8fb9-62b1d10ef7c8)
+<img width="339" alt="스크린샷 2024-10-23 오후 9 02 28" src="https://github.com/user-attachments/assets/63700307-ca9c-444d-abf4-7677945b452f">
