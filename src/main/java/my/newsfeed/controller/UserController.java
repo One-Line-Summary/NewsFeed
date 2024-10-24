@@ -21,7 +21,7 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/user/signup")
-    public ResponseEntity<?> signup(SignupRequestDto signupRequestDto) {
+    public ResponseEntity<?> signup(@RequestBody SignupRequestDto signupRequestDto) {
         try {
             userService.signup(signupRequestDto);
         }catch (Exception e) {
@@ -31,7 +31,7 @@ public class UserController {
     }
 
     @PostMapping("/user/login")
-    public ResponseEntity<?> login(LoginRequestDto RequestDto, HttpServletResponse res) {
+    public ResponseEntity<?> login(@RequestBody LoginRequestDto RequestDto, HttpServletResponse res) {
         try {
             userService.login(RequestDto,res);
         } catch (Exception e) {

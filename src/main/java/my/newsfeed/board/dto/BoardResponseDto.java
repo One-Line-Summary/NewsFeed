@@ -16,5 +16,11 @@ public class BoardResponseDto {
     private String modifiedDate;
 
     public BoardResponseDto(Long id, String boardTitle, String userName, String boardContent, LocalDateTime createdDate, LocalDateTime modifiedDate) {
+        this.id = id;
+        this.boardTitle = boardTitle;
+        this.userName = userName;
+        this.boardContent = boardContent;
+        this.createdDate = createdDate.toString();
+        this.modifiedDate = modifiedDate.toString();
     }
 }
