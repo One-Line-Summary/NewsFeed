@@ -16,11 +16,11 @@ API 명세서1. 회원 가입
 URL: /api/user/signup
 Method: POST
 JSON 코드:
-  "username": "newuser",
-  "password": "NewPass123!",
-  "email": "newuser@example.com",
-  "admin": false,
-  "adminToken": ""
+ *"username": "newuser",
+*"password": "NewPass123!",
+*  "email": "newuser@example.com",
+*  "admin": false,
+ * "adminToken": ""
 
 2. 게시물 생성
 URL: /api/boards
