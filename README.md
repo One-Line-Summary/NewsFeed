@@ -66,7 +66,7 @@ URL: /api/boards/{id}
 ![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbblU3h%2FbtsKhfZQ6WS%2FDS0wHcYl2hsMHsUgXNfwtK%2Fimg.png)
 
 
-##트러블슈팅
+## 트러블슈팅
 
 1. MultipartFile vs File 차이점
 MultipartFile은 HTTP 요청을 통해 파일을 업로드할 때 주로 사용되는 객체로, 파일의 원래 이름을 getOriginalFilename() 메서드를 통해 가져올 수 있습니다.
