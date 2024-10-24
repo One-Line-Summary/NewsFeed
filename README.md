@@ -63,4 +63,4 @@ URL: /api/boards/{id}
 ## ERD
 ---
 
-![]([https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FciklJF%2FbtsJT88cgU5%2FKPIZFIKat9Vw9GKHKLqgJK%2Fimg.png](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbblU3h%2FbtsKhfZQ6WS%2FDS0wHcYl2hsMHsUgXNfwtK%2Fimg.png))
+![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbblU3h%2FbtsKhfZQ6WS%2FDS0wHcYl2hsMHsUgXNfwtK%2Fimg.png)
