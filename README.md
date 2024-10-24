@@ -67,7 +67,6 @@ URL: /api/boards/{id}
 
 
 ##트러블슈팅
-다음은 트러블슈팅에 대한 요약입니다.
 
 1. MultipartFile vs File 차이점
 MultipartFile은 HTTP 요청을 통해 파일을 업로드할 때 주로 사용되는 객체로, 파일의 원래 이름을 getOriginalFilename() 메서드를 통해 가져올 수 있습니다.
