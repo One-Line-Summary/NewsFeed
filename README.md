@@ -62,3 +62,5 @@ URL: /api/boards/{id}
 
 ## ERD
 ---
+<img width="339" alt="스크린샷 2024-10-23 오후 9 02 28" src="https://github.com/user-attachments/assets/3259f3e8-48d1-4238-8486-84dc07591dda">
+
