@@ -19,11 +19,6 @@ import java.util.Arrays;
 public class UserController {
 
     private final UserService userService;
-    
-    @GetMapping("/user/login-page")
-    public ResponseEntity<?> loginPage() {
-        return ResponseEntity.ok("메인페이지");
-    }
 
     @PostMapping("/user/signup")
     public ResponseEntity<?> signup(SignupRequestDto signupRequestDto) {
