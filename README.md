@@ -63,5 +63,4 @@ URL: /api/boards/{id}
 ## ERD
 ---
 
-<img width="339" alt="스크린샷 2024-10-23 오후 9 02 28" src="[https://github.com/user-attachments/assets/3259f3e8-48d1-4238-8486-84dc07591dda](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbblU3h%2FbtsKhfZQ6WS%2FDS0wHcYl2hsMHsUgXNfwtK%2Fimg.png)">
-
+![]([https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FciklJF%2FbtsJT88cgU5%2FKPIZFIKat9Vw9GKHKLqgJK%2Fimg.png](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbblU3h%2FbtsKhfZQ6WS%2FDS0wHcYl2hsMHsUgXNfwtK%2Fimg.png))
